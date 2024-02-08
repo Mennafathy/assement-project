@@ -1,0 +1,18 @@
+<!-- item-list.component.html -->
+
+<div class="container">
+    <h2>Product List</h2>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="newProduct" placeholder="Enter new Product" />
+        <button class="btn btn-primary" type="button" (click)="addProduct(newProduct)">
+            Add Item
+        </button>
+    </div>
+
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let product of products">
+            {{ product }}
+        </li>
+    </ul>
+</div>

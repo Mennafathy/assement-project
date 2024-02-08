@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="text-center">AutoComplete Example</h1>
+  <form class="column g-3">
+    <div class="col-md-6">
+      <div class="position-relative">
+        <label for="searchInput" class="form-label">Search Input</label>
+        <input
+          id="searchInput"
+          type="text"
+          class="form-control"
+          (input)="onSearchTermChange($event)"
+          placeholder="Search..."
+        />
+        <div class="suffix-icon">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class=" d-flex flex-wrap my-2">
+        <span class="d-inline-block rounded-pill me-2 mb-2 p-2 text-white bg-primary" *ngFor="let result of autocompleteResults$ | async">{{ result }}</span>
+        <div class="mt-2" *ngIf="!(autocompleteResults$ | async)?.length">
+          <div class="bg-danger text-white rounded-pill p-2 ">No results found.</div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
